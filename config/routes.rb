@@ -1,4 +1,6 @@
 Cannes::Application.routes.draw do
+  resources :candidates
+
   resources :criteria
 
   # The priority is based upon order of creation:
