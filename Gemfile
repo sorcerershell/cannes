@@ -5,7 +5,7 @@ gem 'rails', '3.2.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'sqlite'3
 
 
 # Gems used only for assets and not required
@@ -21,7 +21,6 @@ group :assets do
 
 end
 
-gem 'less-rails'
 gem 'mysql'
 gem 'twitter-bootstrap-rails',  :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git',
                                 :branch => 'static'
