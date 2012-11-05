@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016123603) do
+ActiveRecord::Schema.define(:version => 20121105115931) do
 
   create_table "candidates", :force => true do |t|
     t.string   "name"
@@ -38,5 +38,17 @@ ActiveRecord::Schema.define(:version => 20121016123603) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "scores", :force => true do |t|
+    t.integer  "Criterium_id"
+    t.integer  "Candidate_id"
+    t.float    "value"
+    t.float    "weighted_value"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "scores", ["Candidate_id"], :name => "index_scores_on_Candidate_id"
+  add_index "scores", ["Criterium_id"], :name => "index_scores_on_Criterium_id"
 
 end
