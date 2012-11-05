@@ -1,27 +1,40 @@
-<h1>Listing criteria</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Weight</th>
-    <th>Goals</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @criteria.each do |criterium| %>
-  <tr>
-    <td><%= criterium.name %></td>
-    <td><%= criterium.weight %></td>
-    <td><%= criterium.goals %></td>
-    <td><%= link_to 'Show', criterium %></td>
-    <td><%= link_to 'Edit', edit_criterium_path(criterium) %></td>
-    <td><%= link_to 'Destroy', criterium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Criterium.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:weight) %></th>
+      <th><%= model_class.human_attribute_name(:goals_id) %></th>
+      <th><%= model_class.human_attribute_name(:parent_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @criteria.each do |criterium| %>
+      <tr>
+        <td><%= link_to criterium.id, criterium_path(criterium) %></td>
+        <td><%= criterium.name %></td>
+        <td><%= criterium.weight %></td>
+        <td><%= criterium.goals_id %></td>
+        <td><%= criterium.parent_id %></td>
+        <td><%=l criterium.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_criterium_path(criterium), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      criterium_path(criterium),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Criterium', new_criterium_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_criterium_path,
+            :class => 'btn btn-primary' %>

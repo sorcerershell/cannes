@@ -22,6 +22,7 @@ group :assets do
 end
 
 gem 'mysql'
+
 gem 'twitter-bootstrap-rails',  :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git',
                                 :branch => 'static'
 gem 'jquery-rails'

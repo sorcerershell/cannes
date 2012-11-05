@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Criterium: 
+  Candidate: 
+  value: 1.5
+  weighted_value: 1.5
+
+two:
+  Criterium: 
+  Candidate: 
+  value: 1.5
+  weighted_value: 1.5
